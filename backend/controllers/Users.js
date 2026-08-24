@@ -1,4 +1,4 @@
-import Users from "../models/Users.model.js"
+import Users from "../models/Users.js"
 
 // crear usuario
 
