@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { model, Schema } from "mongoose";
 
 const numProfilesSchema = new mongoose.Schema({
 numero_vida: {
@@ -27,3 +27,5 @@ numero_alma:{
     }
 },
 })
+
+export default mongoose.model("Perfil", numProfilesSchema)
