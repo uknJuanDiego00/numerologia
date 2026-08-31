@@ -1,35 +1,30 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
 
-const readingSchema = new mongoose.Schema(
-  {
-    user_id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true
+const readingSchema = new mongoose.Schema({
+    usuario: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Usuario"
     },
     prompt: {
-      type: String,
-      required: true,
-      trim: true
+        type: String,
+        required: true
     },
-    response: {
-      type: String,
-      required: true,
-      trim: true
+    respuesta: {
+        type: String,
+        required: true
     },
-    reading_type: {
-      type: String,
-      required: true,
-      enum: ['diaria', 'general', 'anual'],
-      lowercase: true
+    tipo_lectura: {
+        type: String,
+        required: true,
+        enum: {
+            values: ["diaria", "general", "anual"],
+            message: '{VALUE} no es un tipo de lectura válido'
+        }
     },
-    date: {
-      type: Date,
-      default: Date.now
+    fecha: {
+        type: Date,
+        default: Date.now
     }
-  },
-  {
-    timestamps: true,
-    versionKey: false
-  }
-);
+}, { timestamps: true });
+
+export default mongoose.model("Reading", readingSchema);

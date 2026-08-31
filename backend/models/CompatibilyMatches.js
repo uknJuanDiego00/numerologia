@@ -28,3 +28,6 @@ const compMachesSchema = new mongoose.Schema({
   {
     timestamps: true
 });
+
+
+export default mongoose.model("Compatibilidad", compMachesSchema)
