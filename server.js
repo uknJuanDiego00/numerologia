@@ -11,6 +11,7 @@ dotenv.config();
 
 const server = express();
 Data();
+
 const port = process.env.PORT || 3000;
 
 server.use(express.json());
@@ -25,4 +26,3 @@ server.use("/api/v1/logs", auditLogRouter);
 server.listen(port, () => {
     console.log(`Escuchando por el puerto: ${port}`);
 });
-
