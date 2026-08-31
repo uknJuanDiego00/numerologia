@@ -8,7 +8,7 @@ import {
 const router = Router();
 
 router.post("/", crearLog);
-router.get("/", obtenerLogs);
-router.get("/:id", obtenerLogPorId);
+router.get("/", [validarJWT], obtenerLogs);
+router.get("/:id", [validarJWT], obtenerLogPorId);
 
 export default router;

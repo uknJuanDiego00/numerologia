@@ -9,8 +9,8 @@ import {
 const router = Router();
 
 router.post("/", crearCompatibilidad);
-router.get("/", obtenerCompatividades);
-router.get("/:id", obtenerCompatibilidadPorId);
-router.delete("/:id", eliminarCompatibilidad);
+router.get("/", [validarJWT], obtenerCompatividades);
+router.get("/:id", [validarJWT], obtenerCompatibilidadPorId);
+router.delete("/:id", [validarJWT],eliminarCompatibilidad);
 
 export default router;

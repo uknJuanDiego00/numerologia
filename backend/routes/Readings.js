@@ -8,9 +8,9 @@ import {
 
 const router = Router();
 
-router.post("/", crearLectura);
-router.get("/", obtenerLecturas);
-router.get("/:id", obtenerLecturaPorId);
-router.delete("/:id", eliminarLectura);
+router.post("/", [validarJWT],crearLectura);
+router.get("/", [validarJWT],obtenerLecturas);
+router.get("/:id", [validarJWT],obtenerLecturaPorId);
+router.delete("/:id", [validarJWT],eliminarLectura);
 
 export default router;
