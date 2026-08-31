@@ -5,7 +5,7 @@ import Users from "../models/Users"
 export const crearUsuario = async (req, res) =>{
     try{
         const {nombre_completo, email, password, fecha_nacimiento} =req.body;
-        const user = await User.create({nombre_completo, email, password, fecha_nacimiento});
+        const user = await Users.create({nombre_completo, email, password, fecha_nacimiento});
 
         res.status(201).json(user);
     } catch (error){

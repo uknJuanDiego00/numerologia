@@ -6,7 +6,7 @@ export const calculate = async (req, res) => {
     try {
         const { nombre, fecha_nacimiento } = req.body;
 
-        if (!nombre || !fecha_nacimiento) {
+        if (!Users.name || !fecha_nacimiento) {
             return res.status(400).json({
                 message: "El nombre y la fecha de nacimiento son obligatorios."
             });
