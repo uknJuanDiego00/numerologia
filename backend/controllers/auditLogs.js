@@ -1,6 +1,6 @@
 import AuditLog from "../models/auditLogs.js";
 
-// Registrar un evento de auditoría
+
 export const crearLog = async (req, res) => {
     try {
         const { usuario, accion, detalles } = req.body;
@@ -31,7 +31,6 @@ export const crearLog = async (req, res) => {
     }
 };
 
-// Obtener todos los registros de auditoría (opcionalmente filtrados por usuario o acción)
 export const obtenerLogs = async (req, res) => {
     try {
         const { usuario, accion } = req.query;
@@ -53,7 +52,7 @@ export const obtenerLogs = async (req, res) => {
     }
 };
 
-// Obtener un registro de auditoría por su ID
+
 export const obtenerLogPorId = async (req, res) => {
     try {
         const { id } = req.params;
