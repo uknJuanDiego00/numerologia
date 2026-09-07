@@ -16,7 +16,6 @@ const port = process.env.PORT || 3000;
 
 server.use(express.json());
 
-// Rutas de la API RESTful
 server.use("/api/v1/users", userRouter);
 server.use("/api/v1/profiles", numerologyRouter);
 server.use("/api/v1/readings", readingRouter);

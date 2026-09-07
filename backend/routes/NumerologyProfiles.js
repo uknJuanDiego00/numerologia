@@ -1,10 +1,12 @@
 import { Router } from "express";
-import { calculate, profile } from "../controllers/NumerologyProfiles.js";
+import { calcular, perfil } from "../controllers/NumerologyProfiles.js";
+import { validarJWT } from "../middelwares/validarToken.js";
+
 
 const router = Router();
 
-router.post("/calculate", [validarJWT],calculate);
-router.get("/profile", [validarJWT], profile);
+router.post("/calcular", [validarJWT],calcular);
+router.get("/perfil", [validarJWT], perfil);
 
 export default router;
 

@@ -47,3 +47,5 @@ const validarJWT = async (req, res, next) => {
     });
   }
 };
+
+export { validarJWT, generarJWT };

@@ -5,6 +5,8 @@ import {
     obtenerCompatibilidadPorId,
     eliminarCompatibilidad
 } from "../controllers/CompatibilyMatches.js";
+import { validarJWT } from "../middelwares/validarToken.js";
+
 
 const router = Router();
 

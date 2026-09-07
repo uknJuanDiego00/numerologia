@@ -5,6 +5,8 @@ import {
     obtenerLecturaPorId,
     eliminarLectura
 } from "../controllers/Readings.js";
+import { validarJWT } from "../middelwares/validarToken.js";
+
 
 const router = Router();
 

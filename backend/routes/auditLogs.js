@@ -4,6 +4,8 @@ import {
     obtenerLogs,
     obtenerLogPorId
 } from "../controllers/auditLogs.js";
+import { validarJWT } from "../middelwares/validarToken.js";
+
 
 const router = Router();
 

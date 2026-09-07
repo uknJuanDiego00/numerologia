@@ -1,4 +1,4 @@
-import Reading from "../models/Reading.js";
+import Reading from "../models/Readings.js";
 
 // Crear una lectura
 export const crearLectura = async (req, res) => {
