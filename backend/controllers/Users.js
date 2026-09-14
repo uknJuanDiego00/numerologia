@@ -1,5 +1,6 @@
 import User from "../models/Users.js";
 import bcryptjs from "bcryptjs";
+import { generarJWT } from "../middelwares/validarToken.js";
 
 // Crear usuario
 export const crearUsuario = async (req, res) => {
@@ -78,9 +79,13 @@ export const verificarUsuario = async (req, res) => {
             });
         }
 
+        // Generar JWT
+        const token = await generarJWT(user._id);
+
         // Login correcto
         res.status(200).json({
             message: "Inicio de sesión exitoso",
+            token,
             user: {
                 id: user._id,
                 nombre_completo: user.nombre_completo,

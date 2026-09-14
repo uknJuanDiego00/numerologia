@@ -1,3 +1,6 @@
+import jwt from "jsonwebtoken";
+import Holder from "../models/Users.js";
+
 const generarJWT = (id) => {
   return new Promise((resolve, reject) => {
     const payload = { id };
