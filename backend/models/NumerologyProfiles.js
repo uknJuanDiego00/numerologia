@@ -1,31 +1,47 @@
-import mongoose, { model, Schema } from "mongoose";
+import mongoose from "mongoose";
 
 const numProfilesSchema = new mongoose.Schema({
-numero_vida: {
-    type: Number,
-    required: true,
-    validate:{
-        validator: Number.isInteger,
-        message: '{VALUE} debe ser un número entero'
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Usuario",
+        required: true
+    },
+    nombre: {
+        type: String,
+        required: true
+    },
+    fecha_nacimiento: {
+        type: String,
+        required: true
+    },
+    numero_vida: {
+        type: Number,
+        required: true,
+        validate: {
+            validator: Number.isInteger,
+            message: '{VALUE} debe ser un número entero'
+        }
+    },
+    numero_expresion: {
+        type: Number,
+        required: true,
+        validate: {
+            validator: Number.isInteger,
+            message: '{VALUE} debe ser un número entero'
+        }
+    },
+    numero_alma: {
+        type: Number,
+        required: true,
+        validate: {
+            validator: Number.isInteger,
+            message: '{VALUE} debe ser un número entero'
+        }
+    },
+    interpretacion: {
+        type: String,
+        required: true
     }
-},
-numero_expresion:{
-    type: Number,
-    required: true,
-    validate:{
-        validator: Number.isInteger,
-        message: '{VALUE} debe ser un número entero'
-    }
-},
+}, { timestamps: true });
 
-numero_alma:{
-    type: Number,
-    required: true,
-    validate:{
-        validator: Number.isInteger,
-        message: '{VALUE} debe ser un número entero'
-    }
-},
-})
-
-export default mongoose.model("Perfil", numProfilesSchema)
+export default mongoose.model("Perfil", numProfilesSchema);
