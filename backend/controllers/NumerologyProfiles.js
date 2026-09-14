@@ -11,7 +11,7 @@ export const calcular = async (req, res) => {
             });
         }
 
-        const user = await Users.findOne({name: nombre})
+        const user = await Users.findOne({nombre_completo: nombre})
 
         if (!user) {
             return res.status(404).json({
@@ -50,7 +50,7 @@ export const perfil = async (req, res) => {
         }
 
         // Buscar el usuario
-        const user = await Users.findOne({ name: nombre });
+        const user = await Users.findOne({ nombre_completo: nombre });
 
         if (!user) {
             return res.status(404).json({
