@@ -6,7 +6,7 @@ export const crearLectura = async (req, res) => {
         const { prompt, respuesta, tipo_lectura } = req.body;
 
         const lectura = new Reading({
-            usuario: req.usuario.uid,
+            usuario: req.usuario._id || req.usuario.id,
             prompt,
             respuesta,
             tipo_lectura
@@ -35,7 +35,7 @@ export const crearLectura = async (req, res) => {
 export const obtenerLecturas = async (req, res) => {
     try {
         const lecturas = await Reading.find({
-            usuario: req.usuario.uid
+            usuario: req.usuario._id || req.usuario.id
         }).sort({ fecha: -1 });
 
         res.status(200).json({
@@ -61,7 +61,7 @@ export const obtenerLecturaPorId = async (req, res) => {
 
         const lectura = await Reading.findOne({
             _id: id,
-            usuario: req.usuario.uid
+            usuario: req.usuario._id || req.usuario.id
         });
 
         if (!lectura) {
@@ -94,7 +94,7 @@ export const eliminarLectura = async (req, res) => {
 
         const lectura = await Reading.findOneAndDelete({
             _id: id,
-            usuario: req.usuario.uid
+            usuario: req.usuario._id || req.usuario.id
         });
 
         if (!lectura) {

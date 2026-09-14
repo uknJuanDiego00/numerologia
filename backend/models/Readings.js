@@ -17,7 +17,7 @@ const readingSchema = new mongoose.Schema({
         type: String,
         required: true,
         enum: {
-            values: ["diaria", "general", "anual"],
+            values: ["diaria", "general", "anual", "numero_vida"],
             message: '{VALUE} no es un tipo de lectura válido'
         }
     },
