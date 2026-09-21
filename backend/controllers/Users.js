@@ -21,6 +21,14 @@ export const crearUsuario = async (req, res) => {
             });
         }
 
+    // Verificar si el nombre completo está vacío o solo contiene espacios en blanco
+
+        if (!nombre_completo || !nombre_completo.trim()) {
+            return res.status(400).json({
+                message: "El nombre completo es obligatorio"
+            });
+        }
+
         // Encriptar contraseña
         const passwordHash = await bcryptjs.hash(password, 10);
 
